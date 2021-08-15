@@ -25,11 +25,12 @@ class DBclass {
         }
 
         try {
-            Connection databaseConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/yWrPkFmrrx","yWrPkFmrrx", "n070mBUsFt");
+            Connection databaseConnection = DriverManager.getConnection("jdbc:mysql://remotemysql.com:3306/yWrPkFmrrx","yWrPkFmrrx", "n070mBUsFt");
+
             Statement queryManager = databaseConnection.createStatement();
             ResultSet collection = queryManager.executeQuery("SELECT CharacterName, Strength, Dexterity, \r\n"
                     + "Constitution, Intelligence, Wisdom, Charisma, ArmorClass, Initiative, Speed\r\n"
-                    + "FROM characterinfo;");
+                    + "FROM game;");
 
             while(collection.next()) {
                 String characterName = collection.getString("CharacterName");
