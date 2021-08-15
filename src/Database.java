@@ -17,13 +17,15 @@ class DBclass {
 
     public void getData() throws SQLException {
 
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         }catch (ClassNotFoundException e1) {
             e1.printStackTrace();
         }
+
         try {
-            Connection databaseConnection = DriverManager.getConnection("sql305.epizy.com","epiz_29438756", "xb8TNeAykNR0");
+            Connection databaseConnection = DriverManager.getConnection("jdbc:mysql://localhosta:3306/yWrPkFmrrx","yWrPkFmrrx", "n070mBUsFt");
             Statement queryManager = databaseConnection.createStatement();
             ResultSet collection = queryManager.executeQuery("SELECT CharacterName, Strength, Dexterity, \r\n"
                     + "Constitution, Intelligence, Wisdom, Charisma, ArmorClass, Initiative, Speed\r\n"
