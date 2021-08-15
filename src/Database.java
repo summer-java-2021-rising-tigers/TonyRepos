@@ -9,6 +9,7 @@ public class Database {
     public static void main (String[] args) throws SQLException {
         DBclass db = new DBclass();
         db.getData();
+        System.out.println();
     }
 
 }
