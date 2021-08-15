@@ -9,7 +9,6 @@ public class Database {
     public static void main (String[] args) throws SQLException {
         DBclass db = new DBclass();
         db.getData();
-        System.out.println();
     }
 
 }
@@ -19,7 +18,12 @@ class DBclass {
     public void getData() throws SQLException {
 
         try {
-            Connection databaseConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/swing_demo","root", "");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        }catch (ClassNotFoundException e1) {
+            e1.printStackTrace();
+        }
+        try {
+            Connection databaseConnection = DriverManager.getConnection("sql305.epizy.com","epiz_29438756", "xb8TNeAykNR0");
             Statement queryManager = databaseConnection.createStatement();
             ResultSet collection = queryManager.executeQuery("SELECT CharacterName, Strength, Dexterity, \r\n"
                     + "Constitution, Intelligence, Wisdom, Charisma, ArmorClass, Initiative, Speed\r\n"
